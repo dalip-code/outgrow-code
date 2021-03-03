@@ -174,7 +174,6 @@ public class logicJump extends CommonLib {
 		Thread.sleep(2000);
 	}
 
-
 	@Test(priority = 3)
 	public static void lj_id_03_q1_equal_to_option2_jt_outcome2() throws InterruptedException {
 		// if question1 : option 2 jump to outcome2
@@ -2330,7 +2329,7 @@ public class logicJump extends CommonLib {
 
 	}
 
-	@Test(priority =30)
+	@Test(priority = 30)
 	public static void lj_id_30_chicago_poll_op1ORop2_jump_to_result_page() throws InterruptedException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-6170");
@@ -2348,28 +2347,29 @@ public class logicJump extends CommonLib {
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
 		button.click();
-		
+
 		// wait for question 1 to appear.
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//form/div[1]/div[3]/div/div/div[1]/div/p")));
-		
+
 		// click on question 1
-		driver.findElement(By.xpath("//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[1]/div[2]/label/div[2]")).click();
+		driver.findElement(By.xpath(
+				"//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[1]/div[2]/label/div[2]"))
+				.click();
 
 		// jump to result page
-		wait_welcome_screen.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(),'Of participants agree with you!')]")));
-		
+		wait_welcome_screen.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//p[contains(text(),'Of participants agree with you!')]")));
+
 		Thread.sleep(2000);
-		
+
 		driver.manage().deleteAllCookies();
-		
+
 	}
 
-	@Test(priority =31)
+	@Test(priority = 31)
 	public static void lj_id_31_chicago_poll_else_op1ORop2_jump_to_result_page() throws InterruptedException {
-		
-		
+
 		driver.get("https://dcompany878.outgrow.us/dcompany878-6170");
 		// driver.get("https://livec.rely.co/dcompany878-5583");
 		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
@@ -2385,27 +2385,94 @@ public class logicJump extends CommonLib {
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
 		button.click();
-		
+
 		// wait for question 1 to appear.
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//form/div[1]/div[3]/div/div/div[1]/div/p")));
-		
+
 		// scroll to option 5
-		
-		WebElement scroll_option5 = driver.findElement(By.xpath(
-				"//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[5]/div[2]/span"));
+
+		WebElement scroll_option5 = driver.findElement(By
+				.xpath("//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[5]/div[2]/span"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll_option5);
-		
 
 		// click on option 5
-		driver.findElement(By.xpath("//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[5]/div[2]/label/div[2]")).click();
+		driver.findElement(By.xpath(
+				"//form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[5]/div[2]/label/div[2]"))
+				.click();
 
 		// move to question 2
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//form/div[2]/div[3]/div/div/div[1]/div/p")));
-		
+
 		Thread.sleep(2000);
 
 	}
 
+	@Test(priority=32)
+	public static void lj_id_32_backward_jump() throws InterruptedException {
+
+		driver.get("https://dcompany878.outgrow.us/dcompany878-6225");
+		// driver.get("https://livec.rely.co/dcompany878-5583");
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		wait_welcome_screen.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Button Text']")));
+		Thread.sleep(1000);
+		WebElement name = driver.findElement(By.xpath("//input[@id='icon_prefix0']"));
+		WebElement email = driver.findElement(By.xpath("//input[@id='icon_prefix1']"));
+		WebElement button = driver.findElement(By.xpath("//button[normalize-space()='Button Text']"));
+		name.clear();
+		name.sendKeys("dalip");
+		Thread.sleep(500);
+		email.clear();
+		email.sendKeys("dalip.kumar@venturepact.com");
+		button.click();
+
+		wait_welcome_screen.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Question title goes here 1']")));
+
+		// question 1
+		WebElement option1_q1 = driver.findElement(
+				By.xpath("//form/div[1]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[1]/label"));
+		WebElement option2_q1 = driver.findElement(
+				By.xpath("//form/div[1]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[2]/label"));
+		option1_q1.click();
+		option2_q1.click();
+
+		WebElement submit_q1 = driver.findElement(
+				By.xpath("//form/div[1]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[5]/button/i"));
+		submit_q1.click();
+
+		// question 2
+
+		Thread.sleep(2000);
+		WebElement option1_q2 = driver.findElement(By.xpath(
+				"//form/div[2]/div[4]/div/div/div[2]/div/div/control/radio-button/div/div/div[1]/div[2]/label/span[2]"));
+		option1_q2.click();
+
+		WebElement submit_q2 = driver
+				.findElement(By.xpath("//button[@class='submit-checkbox-img ripple-light enterBtn']"));
+		submit_q2.click();
+
+		Thread.sleep(2000);
+
+		// question 3
+
+		WebElement option1_q3 = driver.findElement(
+				By.xpath("//form/div[3]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[1]/label/span"));
+		WebElement option2_q3 = driver.findElement(
+				By.xpath("//form/div[3]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[2]/label/span"));
+		option1_q3.click();
+		option2_q3.click();
+
+		WebElement submit_q3 = driver.findElement(
+				By.xpath("//form/div[3]/div[4]/div/div/div[2]/div/div/control/checkbox/div/div/div[4]/button"));
+		submit_q3.click();
+
+		wait_welcome_screen.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Question title goes here 1']")));
+
+		Thread.sleep(2000);
+
+	}
 }
