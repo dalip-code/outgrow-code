@@ -2409,7 +2409,7 @@ public class logicJump extends CommonLib {
 
 	}
 
-	@Test(priority=32)
+	@Test(priority = 32)
 	public static void lj_id_32_backward_jump() throws InterruptedException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-6225");

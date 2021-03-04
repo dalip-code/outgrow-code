@@ -37,36 +37,37 @@ public class CommonLib {
 	public static WebDriver driver = null;
 
 	// code for running selenium tests on browser stack cloud.
-//	public static final String USERNAME = "tarun156";
-//	public static final String AUTOMATE_KEY = "Vq4cZ9X7qrKGVjcGjvbL";
-//	public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	// public static final String USERNAME = "tarun156";
+	// public static final String AUTOMATE_KEY = "Vq4cZ9X7qrKGVjcGjvbL";
+	// public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY +
+	// "@hub-cloud.browserstack.com/wd/hub";
 
 	public static void LaunchBrowswer() throws InterruptedException, MalformedURLException {
 
-//		 DesiredCapabilities caps = new DesiredCapabilities();
+//		DesiredCapabilities caps = new DesiredCapabilities();
 //		caps.setCapability("os", "Windows");
 //		caps.setCapability("os_version", "10");
 //		caps.setCapability("browser", "Chrome");
 //		caps.setCapability("browser_version", "87.0");
 //		caps.setCapability("name", "New calc");
-//		// caps.setCapability("browserstack.local", "false");
-//		// caps.setCapability("name", "logic jump tests");
+//		caps.setCapability("browserstack.local", "false");
+//		caps.setCapability("name", "logic jump tests");
 //		driver = new RemoteWebDriver(new java.net.URL(URL), caps);
 
-		 BasicConfigurator.configure();
+		// BasicConfigurator.configure();
 		// WebDriverManager.firefoxdriver().setup();
 		// driver = new FirefoxDriver();
 
 		WebDriverManager.chromedriver().setup();
-		//driver = new ChromeDriver();
+		driver = new ChromeDriver();
 
-		ChromeOptions handlingSSL = new ChromeOptions();
+		// ChromeOptions handlingSSL = new ChromeOptions();
 		// Using the accept insecure certificate method with true as parameter to accept
 		// untrusted certificate
-		handlingSSL.setAcceptInsecureCerts(true);
+		// handlingSSL.setAcceptInsecureCerts(true);
 
 		// Creating instance of Chrome driver by passing reference of ChromeOptions
-		driver = new ChromeDriver(handlingSSL);
+		// driver = new ChromeDriver(handlingSSL);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
