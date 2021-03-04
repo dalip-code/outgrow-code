@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class Redirect0nSubmit extends CommonLib {
 
@@ -46,9 +47,15 @@ public class Redirect0nSubmit extends CommonLib {
 		// switch to new tab
 		driver.switchTo().window(newTb.get(1));
 		System.out.println("Page title of new tab: " + driver.getTitle());
+		String url_newtab_e ="https://outgrow.co/";
+		wait_wcs.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Start Free Trial']")));
+		String url_newtab_a =driver.getCurrentUrl();
+		SoftAssert soft = new SoftAssert();
+		soft.assertEquals(url_newtab_a, url_newtab_e);
 		// switch to parent window
-		driver.switchTo().window(newTb.get(0));
-		System.out.println("Page title of parent window: " + driver.getTitle());
+		//driver.switchTo().window(newTb.get(0));
+	   //	System.out.println("Page title of parent window: " + driver.getTitle());
 		
 		Thread.sleep(2000);
 
