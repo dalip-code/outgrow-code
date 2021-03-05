@@ -4,13 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.By;
 //import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -269,6 +274,22 @@ public class CommonLib {
 	public static void scrolling_to_top() {
 		JavascriptExecutor js2 = ((JavascriptExecutor) driver);
 		js2.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+	}
+
+	public static void openNewTab() {
+		((JavascriptExecutor) driver).executeScript("window.open('about:blank','_blank');");
+	}
+
+	public static void switchToNewTab() {
+		// openNewTab();
+		String subWindowHandler = null;
+
+		Set<String> handles = driver.getWindowHandles();
+		java.util.Iterator<String> iterator = handles.iterator();
+		while (iterator.hasNext()) {
+			subWindowHandler = iterator.next();
+		}
+		driver.switchTo().window(subWindowHandler);
 	}
 
 }
