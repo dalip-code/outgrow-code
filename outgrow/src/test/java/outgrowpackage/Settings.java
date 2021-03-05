@@ -35,7 +35,7 @@ public class Settings extends CommonLib {
 		Thread.sleep(10000);
 	}
 
-	//@Test(priority = 1)
+	@Test(priority = 1)
 	public static void Verfiytooltip() throws InterruptedException {
 		// calculator
 		WebElement calculator = driver.findElement(By.xpath("//h3[contains(text(),'Numerical Calculator')]"));
@@ -84,7 +84,7 @@ public class Settings extends CommonLib {
 
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public static void add_folder() throws InterruptedException {
 		driver.findElement(By.xpath("//li[@class='arrn']//a[contains(text(),'Add Folder')]")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -106,7 +106,7 @@ public class Settings extends CommonLib {
 		Thread.sleep(1500);
 	}
 
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	public static void VerifyBillingSettingPage() throws InterruptedException {
 		WebElement img = driver.findElement(By.xpath("//span[@class='person-img']"));
 		WebElement logout_link = driver.findElement(By.xpath(
@@ -123,7 +123,7 @@ public class Settings extends CommonLib {
 
 	}
 
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public static void VerifyTeamSettingPage() throws InterruptedException {
 		VerifyBillingSettingPage();
 
@@ -136,7 +136,7 @@ public class Settings extends CommonLib {
 		Thread.sleep(1000);
 	}
 
-	//@Test(priority = 5)
+	@Test(priority = 5)
 	public static void VerifyMyAccountPage() throws InterruptedException {
 		VerifyBillingSettingPage();
 
@@ -170,7 +170,7 @@ public class Settings extends CommonLib {
 
 	}
 
-	//@Test(priority = 6)
+	@Test(priority = 6)
 	public static void VerifyManagecompanyPage() throws InterruptedException {
 		VerifyBillingSettingPage();
 
@@ -193,12 +193,17 @@ public class Settings extends CommonLib {
 		wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//h6[contains(text(),'General Data Protection Regulation')]")));
 		Thread.sleep(2000);
-		
-		Actions action = new Actions(driver);
-		WebElement go1 = driver.findElement(By.xpath("//span[@class='onoffswitch-inner']"));
-		action.moveToElement(go1).click().build().perform();
-		
-		//CommonLib.scrolling_to_bottom();
+
+//		Actions action = new Actions(driver);
+//		WebElement go1 = driver.findElement(By.xpath("//span[@class='onoffswitch-inner']"));
+//		action.moveToElement(go1).click().build().perform();
+//		
+//		//CommonLib.scrolling_to_bottom();
+//		Thread.sleep(5000);
+		// Assigned elsewhere
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.document.getElementById('myonoffswitch22').click()");
+
 		Thread.sleep(5000);
 
 	}
