@@ -58,7 +58,17 @@ public class TriggerRedirect extends CommonLib {
 
 		driver.get(myText);
 
-		Thread.sleep(30000);
+		Thread.sleep(5000);
+
+		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+
+		driver.switchTo().window(newTb.get(1));
+
+		Thread.sleep(5000);
+
+		driver.switchTo().window(newTb.get(0));
+
+		Thread.sleep(5000);
 
 	}
 }
