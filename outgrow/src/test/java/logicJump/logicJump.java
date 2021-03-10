@@ -53,7 +53,7 @@ public class logicJump extends CommonLib {
 		// https://dcompany878.outgrow.co/builder/dcompany878-4277
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4277");
 		// driver.get("https://livec.rely.co/dcompany878-4277");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(2000);
@@ -1011,7 +1011,7 @@ public class logicJump extends CommonLib {
 		// https://dcompany878.outgrow.us/and_or_condition
 		driver.get("https://dcompany878.outgrow.us/and_or_condition");
 		// driver.get("https://livec.rely.co/and_or_condition");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(2000);
@@ -1521,7 +1521,7 @@ public class logicJump extends CommonLib {
 		// logic jump on question 3
 		driver.get("https://dcompany878.outgrow.us/logic_jump_and_or_condition_calculator");
 		// driver.get("https://livec.rely.co/logic_jump_and_or_condition_calculator");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 
@@ -1578,7 +1578,7 @@ public class logicJump extends CommonLib {
 		driver.get("https://dcompany878.outgrow.us/logic_jump_and_or_condition_calculator");
 		// driver.get("https://livec.rely.co/logic_jump_and_or_condition_calculator");
 
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -1632,7 +1632,7 @@ public class logicJump extends CommonLib {
 
 		driver.get("https://dcompany878.outgrow.us/logic_jump_and_or_condition_calculator");
 		// driver.get("https://livec.rely.co/logic_jump_and_or_condition_calculator");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -1793,7 +1793,7 @@ public class logicJump extends CommonLib {
 
 		driver.get("https://dcompany878.outgrow.us/logic_jump_and_or_condition_calculator");
 		// driver.get("https://livec.rely.co/logic_jump_and_or_condition_calculator");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -1886,7 +1886,7 @@ public class logicJump extends CommonLib {
 
 		driver.get("https://dcompany878.outgrow.us/logic_jump_and_or_condition_calculator");
 		// driver.get("https://livec.rely.co/logic_jump_and_or_condition_calculator");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -2206,7 +2206,7 @@ public class logicJump extends CommonLib {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-5583");
 		// driver.get("https://livec.rely.co/dcompany878-5583");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -2263,7 +2263,7 @@ public class logicJump extends CommonLib {
 		// https://dcompany878.outgrow.co/builder/Copy-of-dcompany878-5583-1
 		driver.get("https://dcompany878.outgrow.us/Copy-of-dcompany878-5583-1");
 		// driver.get("https://livec.rely.co/dcompany878-5583");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);
@@ -2334,7 +2334,7 @@ public class logicJump extends CommonLib {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-6170");
 		// driver.get("https://livec.rely.co/dcompany878-5583");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 30);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(1000);

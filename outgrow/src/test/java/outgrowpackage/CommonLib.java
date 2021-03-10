@@ -64,8 +64,10 @@ public class CommonLib {
 		// driver = new FirefoxDriver();
 
 		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		//driver = new ChromeDriver(options);
 		driver = new ChromeDriver();
-
 		// ChromeOptions handlingSSL = new ChromeOptions();
 		// Using the accept insecure certificate method with true as parameter to accept
 		// untrusted certificate

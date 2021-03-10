@@ -43,7 +43,7 @@ public class TriggerRedirect extends CommonLib {
 
 		Thread.sleep(2000);
 
-		WebDriverWait builder_load = new WebDriverWait(driver, 30);
+		WebDriverWait builder_load = new WebDriverWait(driver, 120);
 		builder_load.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("// span[normalize-space()='WELCOME SCREEN']")));
 
@@ -53,22 +53,24 @@ public class TriggerRedirect extends CommonLib {
 		// storing clipboard data in variable.
 		String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting
 
+		Thread.sleep(2000);
+
 		CommonLib.openNewTab();
 		CommonLib.switchToNewTab();
 
 		driver.get(myText);
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
 
 		driver.switchTo().window(newTb.get(1));
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.switchTo().window(newTb.get(0));
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	}
 }

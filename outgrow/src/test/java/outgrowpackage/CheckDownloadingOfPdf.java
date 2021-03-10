@@ -49,14 +49,14 @@ public class CheckDownloadingOfPdf {
 		wait_result_page.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Download pdf']")));
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//p[normalize-space()='Download pdf']")).click();
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		File downloadedFile = new File(downloadFilePathLocation + "\\Dalip's #6186 Calculator.pdf");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		Assert.assertTrue(downloadedFile.exists());
 
