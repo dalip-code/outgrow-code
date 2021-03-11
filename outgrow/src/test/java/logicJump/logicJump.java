@@ -24,14 +24,16 @@ import outgrowpackage.CommonLib;
 public class logicJump extends CommonLib {
 
 	@BeforeClass
-	public static void open_browser() throws InterruptedException, MalformedURLException {
+	public static void open_browser() throws Exception {
 		CommonLib.LaunchBrowswer();
+		ScreenRecorderUtil.startRecord("open_browser");
 
 	}
 
 	@AfterClass
-	public static void quit_browser() throws InterruptedException {
+	public static void quit_browser() throws Exception {
 		CommonLib.closeBrowser();
+		ScreenRecorderUtil.stopRecord();
 		CommonLib.quitDriver();
 	}
 
@@ -54,6 +56,7 @@ public class logicJump extends CommonLib {
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4277");
 		// driver.get("https://livec.rely.co/dcompany878-4277");
 		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
+
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
 		Thread.sleep(2000);

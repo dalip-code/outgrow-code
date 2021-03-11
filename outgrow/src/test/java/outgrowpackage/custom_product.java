@@ -3,6 +3,7 @@ package outgrowpackage;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -48,13 +49,12 @@ public class custom_product extends CommonLib {
 		wait2.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//p[contains(text(),'Question title goes here 1')]")));
 
-		driver.findElement(By.xpath("//input[@id='5fc4f16874d83773a7b47197']")).sendKeys("123");
+		driver.findElement(By.xpath("//form/div/div[3]/div/div/div[2]/div/div/control/textfield/div/div/div/input"))
+				.sendKeys("123");
 
 		driver.findElement(By.xpath("//button[@class='button_textfield submit-textbox-btnresp ripple-light']")).click();
 
-		driver.findElement(
-				By.xpath("//section/div/div/ul/li[1]/div[1]/div/label/div[2]/div[2]/a[1]"))
-				.click();
+		driver.findElement(By.xpath("//section/div/div/ul/li[1]/div[1]/div/label/div[2]/div[2]/a[1]")).click();
 
 		Thread.sleep(3000);
 
@@ -62,9 +62,11 @@ public class custom_product extends CommonLib {
 				.getText();
 		System.out.println(hding);
 
-		driver.findElement(By.xpath(
-				"/html/body/div[2]/section/span[2]/div/div/main/form/div/div/div/div/div/div[1]/div[2]/fieldset/div[1]/div[1]/span/span[1]/div/div[1]/input"))
-				.sendKeys("4242424242424242");
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		// set the text
+		jsExecutor
+				.executeScript("document.getElementById('//input[@id='60420592841cd47f8ea5e854']').value='4242424242'");
+
 		Thread.sleep(3000);
 
 		/*
