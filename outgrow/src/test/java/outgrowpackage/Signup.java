@@ -29,7 +29,7 @@ public class Signup extends CommonLib {
 
 	@BeforeMethod
 	public static void Open_siteup_page_browser() throws InterruptedException {
-		driver.get("https://app.rely.co/signup");
+		driver.get("https://app.outgrow.co/signup");
 	}
 
 	@Test(priority = 1)

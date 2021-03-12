@@ -60,7 +60,7 @@ public class Redirect0nSubmit extends CommonLib {
 		// driver.switchTo().window(newTb.get(0));
 		// System.out.println("Page title of parent window: " + driver.getTitle());
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 	}
 
