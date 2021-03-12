@@ -78,6 +78,7 @@ public class CommonLib {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		// driver.manage().window().fullscreen();
 		// driver.manage().window().setSize(new Dimension(360, 600));
 		driver.manage().deleteAllCookies();
 	}
