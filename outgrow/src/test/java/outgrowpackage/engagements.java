@@ -92,6 +92,7 @@ public class engagements extends CommonLib {
 		Thread.sleep(500);
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
+		Thread.sleep(500);
 		button.click();
 
 		// wait for question 1
@@ -125,15 +126,15 @@ public class engagements extends CommonLib {
 		driver.close();
 
 		driver.switchTo().window(newTb.get(1));
-		Thread.sleep(5000);
+		// Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		String click_on_url_text_a = driver
 				.findElement(By.xpath("//og-user-details/div[2]/div[1]/table/tbody/tr/td[6]")).getText();
@@ -182,6 +183,7 @@ public class engagements extends CommonLib {
 		Thread.sleep(500);
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
+		Thread.sleep(500);
 		button.click();
 
 		// wait for question 1
@@ -209,15 +211,15 @@ public class engagements extends CommonLib {
 		Assert.assertEquals(resultpage_a, resultpage_e);
 
 		driver.switchTo().window(newTb.get(1));
-		Thread.sleep(2000);
+		// Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
 
@@ -269,6 +271,7 @@ public class engagements extends CommonLib {
 		Thread.sleep(500);
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
+		Thread.sleep(500);
 		button.click();
 
 		// wait for question 1
@@ -299,15 +302,15 @@ public class engagements extends CommonLib {
 		driver.findElement(By.xpath("//p[normalize-space()='Save as PDF']")).click();
 
 		driver.switchTo().window(newTb.get(1));
-		Thread.sleep(2000);
+		// Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
 
@@ -358,6 +361,7 @@ public class engagements extends CommonLib {
 		Thread.sleep(500);
 		email.clear();
 		email.sendKeys("dalip.kumar@venturepact.com");
+		Thread.sleep(500);
 		button.click();
 
 		// wait for question 1
@@ -388,15 +392,15 @@ public class engagements extends CommonLib {
 		Thread.sleep(10000);
 
 		driver.switchTo().window(newTb.get(1));
-		Thread.sleep(2000);
+		// Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
 
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
 

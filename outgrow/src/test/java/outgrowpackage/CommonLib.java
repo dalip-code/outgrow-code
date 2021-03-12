@@ -64,7 +64,7 @@ public class CommonLib {
 		// driver = new FirefoxDriver();
 
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
+		// ChromeOptions options = new ChromeOptions();
 		// options.addArguments("--headless");
 		// driver = new ChromeDriver(options);
 		driver = new ChromeDriver();
