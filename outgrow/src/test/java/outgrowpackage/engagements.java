@@ -211,6 +211,14 @@ public class engagements extends CommonLib {
 		driver.switchTo().window(newTb.get(1));
 		Thread.sleep(2000);
 
+		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
+
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
+
+		Thread.sleep(3000);
+
 		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
 
 		String click_on_url_text_a = driver
@@ -293,6 +301,14 @@ public class engagements extends CommonLib {
 		driver.switchTo().window(newTb.get(1));
 		Thread.sleep(2000);
 
+		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
+
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
+
+		Thread.sleep(3000);
+
 		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
 
 		String click_on_url_text_a = driver
@@ -303,4 +319,94 @@ public class engagements extends CommonLib {
 
 		Assert.assertEquals(click_on_url_text_a, click_on_url_text_e);
 	}
+
+	@Test(dependsOnMethods = "engagement_check_chicago")
+	public static void engagement_redirected_to_url()
+			throws HeadlessException, UnsupportedFlavorException, IOException, InterruptedException {
+
+		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+
+		driver.switchTo().window(newTb.get(2));
+
+		driver.close();
+
+		driver.switchTo().window(newTb.get(1));
+
+		Thread.sleep(2000);
+
+		// URL copied to clipboard.
+		driver.findElement(By.xpath("//i[normalize-space()='library_books']")).click();
+
+		// storing clipboard data in variable.
+		String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting
+
+		Thread.sleep(2000);
+
+		CommonLib.openNewTab();
+		CommonLib.switchToNewTab();
+
+		driver.get(myText);
+
+		driver.findElement(By.xpath("//strong[contains(text(),'CALCULATOR HEADING GOES HERE')]")).isDisplayed();
+
+		WebElement name = driver.findElement(By.xpath("//input[@id='icon_prefix0']"));
+		WebElement email = driver.findElement(By.xpath("//input[@id='icon_prefix1']"));
+		WebElement button = driver.findElement(By.xpath("//button[@id='landingBtn']"));
+
+		name.clear();
+		name.sendKeys("dalip");
+		Thread.sleep(500);
+		email.clear();
+		email.sendKeys("dalip.kumar@venturepact.com");
+		button.click();
+
+		// wait for question 1
+		WebDriverWait waitq1 = new WebDriverWait(driver, 20);
+		waitq1.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//p[contains(text(),'Question title goes here 1')]")));
+
+		// question 1: option 2
+		WebElement q1_option1 = driver.findElement(By.xpath(
+				"// form/div[1]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[1]/div[2]/label/span\r\n"
+						+ ""));
+		q1_option1.click();
+
+		// question 2: option 2
+		WebElement q2_option1 = driver.findElement(By
+				.xpath("//form/div[2]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[1]/div[2]/label"));
+		q2_option1.click();
+
+		Thread.sleep(2000);
+
+		// result page
+		String resultpage_a = driver.findElement(By.xpath("//p[normalize-space()='THIS IS THE PAGE HEADING']"))
+				.getText();
+		String resultpage_e = "THIS IS THE PAGE HEADING";
+
+		Assert.assertEquals(resultpage_a, resultpage_e);
+
+		Thread.sleep(10000);
+
+		driver.switchTo().window(newTb.get(1));
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
+
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
+
+		Thread.sleep(3000);
+
+		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
+
+		String click_on_url_text_a = driver
+				.findElement(By.xpath("//og-user-details/div[2]/div[1]/table/tbody/tr/td[6]")).getText();
+		System.out.println(click_on_url_text_a);
+
+		String click_on_url_text_e = "Redirected to URL";
+
+		Assert.assertEquals(click_on_url_text_a, click_on_url_text_e);
+	}
+
 }
