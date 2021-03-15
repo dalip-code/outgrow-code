@@ -428,9 +428,33 @@ public class engagements extends CommonLib {
 
 	public static void DeleteLeadEngagementData_Chicago() throws InterruptedException {
 
-		WebElement Reset = driver.findElement(By.xpath("//div[@class='archive-btn']//button[@type='button']"));
+		WebElement actions = driver.findElement(By.xpath("//div[@class='archive-btn']//button[@type='button']"));
 
-		Reset.click();
+		actions.click();
+		Thread.sleep(2000);
+
+		WebElement ResetAll = driver.findElement(By.xpath("//span[contains(text(),'Reset All')]"));
+
+		ResetAll.click();
+
+		WebDriverWait builder_load = new WebDriverWait(driver, 10);
+		builder_load.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//button[@class='btn btn btn btn-ok btn-hover new-del-btn']")));
+
+		WebElement deleteButton = driver
+				.findElement(By.xpath("//button[@class='btn btn btn btn-ok btn-hover new-del-btn']"));
+
+		deleteButton.click();
+
+		Thread.sleep(2000);
+
+		String ResetSuccessMessage_a = driver
+				.findElement(By.xpath("//span[contains(text(),'Analytics Reset Successfully!')]")).getText();
+
+		String ResetSuccessMessage_e = "Analytics Reset Successfully!";
+
+		Assert.assertEquals(ResetSuccessMessage_a, ResetSuccessMessage_e);
+
 		Thread.sleep(2000);
 
 	}
