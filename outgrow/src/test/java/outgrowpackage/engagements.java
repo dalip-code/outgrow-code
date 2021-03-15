@@ -35,8 +35,8 @@ public class engagements extends CommonLib {
 		CommonLib.quitDriver();
 	}
 
-	@Test
-	public static void engagement_check_chicago()
+	@Test(priority = 1)
+	public static void leadEngagementCheckChicago()
 			throws IOException, InterruptedException, HeadlessException, UnsupportedFlavorException {
 
 		CommonLib.login();
@@ -77,8 +77,8 @@ public class engagements extends CommonLib {
 
 	}
 
-	@Test(dependsOnMethods = "engagement_check_chicago")
-	public static void engagement_clicked_on_url() throws InterruptedException {
+	@Test(dependsOnMethods = "leadEngagementCheckChicago", priority = 2)
+	public static void leadEngagementClickedOnUrl() throws InterruptedException {
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
 
 		driver.switchTo().window(newTb.get(2));
@@ -150,8 +150,8 @@ public class engagements extends CommonLib {
 
 	}
 
-	@Test(dependsOnMethods = "engagement_check_chicago")
-	public static void engagement_none()
+	@Test(dependsOnMethods = "leadEngagementCheckChicago", priority = 3)
+	public static void leadEngagementNone_Chicago()
 			throws InterruptedException, HeadlessException, UnsupportedFlavorException, IOException {
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
 
@@ -237,8 +237,8 @@ public class engagements extends CommonLib {
 
 	}
 
-	@Test(dependsOnMethods = "engagement_check_chicago")
-	public static void engagement_pdf()
+	@Test(dependsOnMethods = "leadEngagementCheckChicago", priority = 4)
+	public static void leadEngagementPdf_Chicago()
 			throws HeadlessException, UnsupportedFlavorException, IOException, InterruptedException {
 
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
@@ -327,8 +327,8 @@ public class engagements extends CommonLib {
 		Assert.assertEquals(click_on_url_text_a, click_on_url_text_e);
 	}
 
-	@Test(dependsOnMethods = "engagement_check_chicago")
-	public static void engagement_redirected_to_url()
+	@Test(dependsOnMethods = "leadEngagementCheckChicago", priority = 5)
+	public static void leadEngagementRedirectedToUrl_Chicago()
 			throws HeadlessException, UnsupportedFlavorException, IOException, InterruptedException {
 
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
