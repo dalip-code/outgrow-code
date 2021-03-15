@@ -25,13 +25,13 @@ public class engagements extends CommonLib {
 	@BeforeClass
 	public static void open_browser() throws Exception {
 		CommonLib.LaunchBrowswer();
-		ScreenRecorderUtil.startRecord("open_browser");
+		// ScreenRecorderUtil.startRecord("open_browser");
 	}
 
 	@AfterClass
 	public static void quit_browser() throws Exception {
 		CommonLib.closeBrowser();
-		ScreenRecorderUtil.stopRecord();
+		// ScreenRecorderUtil.stopRecord();
 		CommonLib.quitDriver();
 	}
 
@@ -289,7 +289,6 @@ public class engagements extends CommonLib {
 						+ ""));
 		q1_option1.click();
 
-		
 		// question 2: option 2
 		WebElement q2_option2 = driver.findElement(By
 				.xpath("//form/div[2]/div[3]/div/div/div[2]/div/div/control/radio-button/div/div/div[2]/div[2]/label"));
@@ -416,6 +415,24 @@ public class engagements extends CommonLib {
 		String click_on_url_text_e = "Redirected to URL";
 
 		Assert.assertEquals(click_on_url_text_a, click_on_url_text_e);
+
+		Thread.sleep(2000);
+
+		CommonLib.CaptureScreenshotEngagements("chicago_lead_engagements");
+
+		Thread.sleep(2000);
+
+	}
+
+	@Test(dependsOnMethods = "leadEngagementCheckChicago", priority = 6)
+
+	public static void DeleteLeadEngagementData_Chicago() throws InterruptedException {
+
+		WebElement Reset = driver.findElement(By.xpath("//div[@class='archive-btn']//button[@type='button']"));
+
+		Reset.click();
+		Thread.sleep(2000);
+
 	}
 
 }

@@ -164,6 +164,17 @@ public class CommonLib {
 
 	}
 
+	public static void CaptureScreenshotEngagements(String filename) throws IOException {
+
+		Random randomLeadGenerator = new Random();
+		int random_no = randomLeadGenerator.nextInt(10000);
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		File dest = new File("./Screenshots/Engagements/" + filename + random_no + ".png");
+		Files.copy(src, dest);
+
+	}
+
 	public static void CaptureScreenshotSave_mechanism(String filename) throws IOException {
 
 		Random randomLeadGenerator = new Random();
