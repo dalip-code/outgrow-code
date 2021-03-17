@@ -1,5 +1,9 @@
 package outgrowpackage;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.fail;
+
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
@@ -36,9 +40,7 @@ public class switchingScanerios extends CommonLib {
 		CommonLib.quitDriver();
 	}
 
-	@Test(priority = 1)
-	public static void switchingOutcomeToEcomm()
-			throws IOException, InterruptedException, HeadlessException, UnsupportedFlavorException {
+	public static void login_to_new_tab_dashboard() throws IOException, InterruptedException {
 
 		CommonLib.login();
 
@@ -50,7 +52,16 @@ public class switchingScanerios extends CommonLib {
 
 		WebDriverWait dashboardLoadCheck = new WebDriverWait(driver, 60);
 		dashboardLoadCheck.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//i[@class='la la-calculator unchecked-icons']")));
+				.visibilityOfElementLocated(By.xpath("//a[@class='hvr-underline-from-left active']")));
+
+		Thread.sleep(2000);
+	}
+
+	@Test(priority = 1)
+	public static void switchingOutcomeToEcomm_chicago()
+			throws IOException, InterruptedException, HeadlessException, UnsupportedFlavorException {
+
+		login_to_new_tab_dashboard();
 
 		// click on outcome quiz
 		driver.findElement(By.xpath("//i[@class='la la-check-circle unchecked-icons']")).click();
@@ -90,13 +101,167 @@ public class switchingScanerios extends CommonLib {
 
 		System.out.println(errorMessage_a);
 
-		if (errorMessage_a == errroMessage_e) {
+		Thread.sleep(2000);
 
-			SoftAssert soft = new SoftAssert();
+		if (errorMessage_a.equals(errroMessage_e)) {
 
-			soft.assertTrue(false);
-			soft.assertAll();
-			System.out.println("failed");
+			System.out.println("Failed");
+			String a = "abc";
+			String b = "pqr";
+			Assert.assertEquals(a, b);
+
+		} else {
+			System.out.println("Pass");
+		}
+
+	}
+
+	@Test(priority = 2)
+	public static void switchingCalculatorToAssessment_chicago()
+			throws IOException, InterruptedException, HeadlessException, UnsupportedFlavorException {
+
+		login_to_new_tab_dashboard();
+
+		// click on outcome quiz
+		driver.findElement(By.xpath("//i[@class='la la-calculator unchecked-icons']")).click();
+
+		driver.findElement(By.xpath("//og-templates/div[2]/div[2]/div[1]/div/div[2]/div[1]/div/div/div/button"))
+				.click();
+
+		WebDriverWait builder_load = new WebDriverWait(driver, 120);
+		builder_load.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("// span[normalize-space()='WELCOME SCREEN']")));
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//i[normalize-space()='edit']")).click();
+
+		Thread.sleep(2000);
+
+		WebElement lastelement = driver.findElement(By.xpath("//div[normalize-space()='CHANGE LAYOUT']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastelement);
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath("//button[@class='btn dropdown-toggle btn-basic2 w100']")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[contains(text(),'ASSESSMENT')]")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//button[contains(text(),'Switch Anyway')]")).click();
+
+		WebDriverWait wait_for_switching_text = new WebDriverWait(driver, 120);
+		wait_for_switching_text.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(text(),\"Awesome, we're taking you to the builder to create\")]")));
+
+		Boolean switching_text = driver
+				.findElement(
+						By.xpath("//span[contains(text(),\"Awesome, we're taking you to the builder to create\")]"))
+				.isDisplayed();
+
+		System.out.println(switching_text);
+
+		driver.findElement(By.xpath("//i[normalize-space()='edit']")).click();
+
+		Thread.sleep(4000);
+
+		String assessment_text_a = driver
+				.findElement(By.xpath("//global_settings/div[2]/div[5]/div[5]/div[3]/div[2]/button/div")).getText();
+
+		String assessment_text_e = "Assessment";
+
+		if (assessment_text_a.equals(assessment_text_e)) {
+
+			System.out.println(assessment_text_a);
+
+			System.out.println("passed");
+			String a = "abc";
+			String b = "abc";
+			Assert.assertEquals(a, b);
+
+		} else {
+
+			System.out.println("else condition run");
+			String a = "abc";
+			String b = "pqr";
+			Assert.assertEquals(a, b);
+		}
+
+	}
+
+	@Test(priority = 3)
+	public static void switchingCalculatorToOutcome_chicago()
+			throws IOException, InterruptedException, HeadlessException, UnsupportedFlavorException {
+
+		login_to_new_tab_dashboard();
+
+		// click on outcome quiz
+		driver.findElement(By.xpath("//i[@class='la la-calculator unchecked-icons']")).click();
+
+		driver.findElement(By.xpath("//og-templates/div[2]/div[2]/div[1]/div/div[2]/div[1]/div/div/div/button"))
+				.click();
+
+		WebDriverWait builder_load = new WebDriverWait(driver, 120);
+		builder_load.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("// span[normalize-space()='WELCOME SCREEN']")));
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//i[normalize-space()='edit']")).click();
+
+		Thread.sleep(2000);
+
+		WebElement lastelement = driver.findElement(By.xpath("//div[normalize-space()='CHANGE LAYOUT']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastelement);
+		Thread.sleep(5000);
+
+		driver.findElement(By.xpath("//button[@class='btn dropdown-toggle btn-basic2 w100']")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[contains(text(),'OUTCOME QUIZ')]")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//button[contains(text(),'Switch Anyway')]")).click();
+
+		WebDriverWait wait_for_switching_text = new WebDriverWait(driver, 120);
+		wait_for_switching_text.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(text(),\"Awesome, we're taking you to the builder to create\")]")));
+
+		Boolean switching_text = driver
+				.findElement(
+						By.xpath("//span[contains(text(),\"Awesome, we're taking you to the builder to create\")]"))
+				.isDisplayed();
+
+		System.out.println(switching_text);
+
+		driver.findElement(By.xpath("//i[normalize-space()='edit']")).click();
+
+		Thread.sleep(4000);
+
+		String content_change_text_a = driver
+				.findElement(By.xpath("//global_settings/div[2]/div[5]/div[5]/div[3]/div[2]/button/div")).getText();
+
+		String content_change_text_e = "Outcome Quiz";
+
+		if (content_change_text_a.equals(content_change_text_e)) {
+
+			System.out.println(content_change_text_a);
+
+			System.out.println("passed");
+			String a = "abc";
+			String b = "abc";
+			Assert.assertEquals(a, b);
+
+		} else {
+
+			System.out.println("else condition run");
+			String a = "abc";
+			String b = "pqr";
+			Assert.assertEquals(a, b);
 		}
 
 	}
