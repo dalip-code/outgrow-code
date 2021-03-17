@@ -172,6 +172,8 @@ public class switchingScanerios extends CommonLib {
 
 		String assessment_text_e = "Assessment";
 
+		Thread.sleep(4000);
+
 		if (assessment_text_a.equals(assessment_text_e)) {
 
 			System.out.println(assessment_text_a);
@@ -242,8 +244,13 @@ public class switchingScanerios extends CommonLib {
 
 		Thread.sleep(4000);
 
+		WebElement switched_layout = driver.findElement(By.xpath("//div[normalize-space()='CHANGE LAYOUT']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", switched_layout);
+
 		String content_change_text_a = driver
 				.findElement(By.xpath("//global_settings/div[2]/div[5]/div[5]/div[3]/div[2]/button/div")).getText();
+
+		Thread.sleep(4000);
 
 		String content_change_text_e = "Outcome Quiz";
 
