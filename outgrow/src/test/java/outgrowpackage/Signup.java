@@ -345,24 +345,43 @@ public class Signup extends CommonLib {
 
 		System.out.println(driver.getCurrentUrl());
 
-		Thread.sleep(3000);
-		WebDriverWait wait2 = new WebDriverWait(driver, 20);
-		wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='opt-outer mr15']//img")));
+		String company_plus_int = driver.getCurrentUrl();
 
-		driver.findElement(By.xpath("//div[@class='opt-outer mr15']//img")).click();
+		int a = company_plus_int.indexOf("y");
+		int b = company_plus_int.indexOf(".");
+		String added_to_url = company_plus_int.substring(a + 1, b);
 
-		driver.findElement(
-				By.xpath("//li[@class='active']//a[@class='link-btn-filled'][contains(text(),'Select Content')]"))
-				.click();
+		int i = Integer.parseInt(added_to_url);
 
-		WebDriverWait wait3 = new WebDriverWait(driver, 60);
-		wait3.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//a[@class='active'][contains(text(),'Build')]")));
+		System.out.println(i);
 
-		CommonLib.logout();
+		if (i > 0 && i <= 999) {
 
-		Thread.sleep(3000);
+			Thread.sleep(3000);
+			WebDriverWait wait2 = new WebDriverWait(driver, 20);
+			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='opt-outer mr15']//img")));
 
+			driver.findElement(By.xpath("//div[@class='opt-outer mr15']//img")).click();
+
+			driver.findElement(
+					By.xpath("//li[@class='active']//a[@class='link-btn-filled'][contains(text(),'Select Content')]"))
+					.click();
+
+			WebDriverWait wait3 = new WebDriverWait(driver, 60);
+			wait3.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("//a[@class='active'][contains(text(),'Build')]")));
+
+			CommonLib.logout();
+
+			Thread.sleep(3000);
+
+		} else {
+
+			String aa = "abc";
+			String bb = "pqr";
+			Assert.assertEquals(aa, bb);
+
+		}
 	}
 
 }
