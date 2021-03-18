@@ -311,6 +311,7 @@ public class Signup extends CommonLib {
 		CommonLib.CaptureScreenshotreg("builder");
 		CommonLib.logout();
 		CommonLib.CaptureScreenshotreg("logout");
+		
 	}
 
 	@Test(priority = 10, enabled = true)
