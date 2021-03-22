@@ -13,6 +13,7 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 //import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -74,7 +75,7 @@ public class CommonLib {
 		 * to run the script headless
 		 */
 
-		//driver = new ChromeDriver();
+		// driver = new ChromeDriver();
 		ChromeOptions handlingSSL = new ChromeOptions();
 		// Using the accept insecure certificate method with true as parameter to accept
 		// untrusted certificate
@@ -312,4 +313,9 @@ public class CommonLib {
 		driver.switchTo().window(subWindowHandler);
 	}
 
+	public static void resizeToNormalWindow() throws InterruptedException {
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+
+	}
 }

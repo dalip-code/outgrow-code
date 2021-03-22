@@ -11,7 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class assessment_answer_key extends CommonLib {
@@ -27,7 +30,12 @@ public class assessment_answer_key extends CommonLib {
 		CommonLib.quitDriver();
 	}
 
-	@Test(priority = 1, enabled = false)
+	@BeforeMethod
+	public static void resizing() throws InterruptedException {
+		CommonLib.resizeToNormalWindow();
+	}
+
+	@Test(priority = 1, enabled = true)
 	public static void paris_assessment_ak() throws InterruptedException, IOException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4011");
@@ -234,7 +242,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public static void paris_result_page_box_border() throws InterruptedException, IOException {
 
 		driver.get("https://dcompany878.outgrow.us/automate_box_border_paris");
@@ -292,7 +300,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public static void paris_result_text_bold() throws InterruptedException, IOException {
 
 		driver.get("https://dcompany878.outgrow.us/automate_box_border_paris");
@@ -351,7 +359,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public static void paris_result_fontweight_heading_desktop() throws InterruptedException, IOException {
 
 		driver.get("https://dcompany878.outgrow.us/automate_box_border_paris");
@@ -412,9 +420,10 @@ public class assessment_answer_key extends CommonLib {
 		Assert.assertEquals(actual_value_font_size_desktop, expected_value_font_size_desktop);
 		Assert.assertEquals(actual_value_font_weight_desktop, expected_value_font_weight_desktop);
 		System.out.println("**********----------**********----------");
+
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public static void paris_result_fontweight_heading_tab() throws InterruptedException, IOException {
 
 		driver.manage().window().setSize(new Dimension(768, 1024));
@@ -479,7 +488,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public static void paris_result_fontweight_heading_mobile() throws InterruptedException, IOException {
 
 		driver.manage().window().setSize(new Dimension(320, 700));
@@ -542,7 +551,7 @@ public class assessment_answer_key extends CommonLib {
 		System.out.println("**********----------**********----------");
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public static void paris_result_lead_text_center_desktop() throws InterruptedException, IOException {
 
 		// https://app.asana.com/0/0/1199108650602940/f
@@ -598,7 +607,7 @@ public class assessment_answer_key extends CommonLib {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public static void paris_result_lead_text_center_tab() throws InterruptedException, IOException {
 
 		// https://app.asana.com/0/0/1199108650602940/f
@@ -653,7 +662,7 @@ public class assessment_answer_key extends CommonLib {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public static void paris_result_lead_text_center_mobile() throws InterruptedException, IOException {
 
 		// https://app.asana.com/0/0/1199108650602940/f
@@ -709,7 +718,7 @@ public class assessment_answer_key extends CommonLib {
 		Thread.sleep(2000);
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public static void paris_multiselect_exact_validation() throws InterruptedException, IOException {
 
 		// https://app.asana.com/0/0/1199207766473685/f
@@ -803,7 +812,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public static void paris_multiselect_range_validation() throws InterruptedException, IOException {
 
 		// https://app.asana.com/0/0/1199207766473685/f
@@ -905,7 +914,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public static void assessment_section_component_color() throws InterruptedException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4776");
@@ -940,7 +949,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 13, enabled = false)
+	@Test(priority = 13, enabled = true)
 	public static void assessment_sub_heading_font() throws InterruptedException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4788");
@@ -976,7 +985,7 @@ public class assessment_answer_key extends CommonLib {
 
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14, enabled = true)
 	public static void assessment_lead_with_result_thanku_desktop() throws InterruptedException {
 
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4797");
@@ -1170,7 +1179,7 @@ public class assessment_answer_key extends CommonLib {
 		driver.findElement(By.xpath(
 				"//section/div/div[1]/graded-result-v2/div/section/div/div/div[2]/div/div/div/div[1]/div/div/a/div"))
 				.click();
-		
+
 		Thread.sleep(2000);
 
 		WebElement scroll_down_2 = driver.findElement(By.xpath(
@@ -1274,7 +1283,7 @@ public class assessment_answer_key extends CommonLib {
 		Assert.assertEquals(ak_q6_user_response_left_a, ak_q6_user_response_left_e);
 		Assert.assertEquals(ak_q6_cr_left_a, ak_q6_cr_left_e);
 		Assert.assertEquals(ak_q6_result_right_a, ak_q6_result_right_e);
-		
+
 		Thread.sleep(2000);
 
 	}
