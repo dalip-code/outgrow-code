@@ -60,7 +60,7 @@ public class CheckDownloadingOfPdf {
 
 		Assert.assertTrue(downloadedFile.exists());
 
-		downloadedFile.delete();
+		// downloadedFile.delete();
 
 		driver.close();
 
@@ -68,7 +68,7 @@ public class CheckDownloadingOfPdf {
 
 	}
 
-	@Test
+	//@Test
 	public static void chicago_moziila_downloadPdf() throws InterruptedException {
 
 		WebDriverManager.firefoxdriver().setup();

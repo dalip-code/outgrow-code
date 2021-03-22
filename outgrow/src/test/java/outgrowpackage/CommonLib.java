@@ -74,14 +74,14 @@ public class CommonLib {
 		 * to run the script headless
 		 */
 
-		driver = new ChromeDriver();
-		// ChromeOptions handlingSSL = new ChromeOptions();
+		//driver = new ChromeDriver();
+		ChromeOptions handlingSSL = new ChromeOptions();
 		// Using the accept insecure certificate method with true as parameter to accept
 		// untrusted certificate
-		// handlingSSL.setAcceptInsecureCerts(true);
+		handlingSSL.setAcceptInsecureCerts(true);
 
 		// Creating instance of Chrome driver by passing reference of ChromeOptions
-		// driver = new ChromeDriver(handlingSSL);
+		driver = new ChromeDriver(handlingSSL);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -183,7 +183,6 @@ public class CommonLib {
 		File src = ts.getScreenshotAs(OutputType.FILE);
 		File dest = new File("./Screenshots/Save_mechanism/" + filename + random_no + ".png");
 		Files.copy(src, dest);
-
 	}
 
 	public static void login() throws IOException, InterruptedException {

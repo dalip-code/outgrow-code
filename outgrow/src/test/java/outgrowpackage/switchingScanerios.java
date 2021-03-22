@@ -31,20 +31,14 @@ public class switchingScanerios extends CommonLib {
 	@BeforeClass
 	public static void open_browser() throws Exception {
 		CommonLib.LaunchBrowswer();
-		//ScreenRecorderUtil.startRecord("open_browser");
+		ScreenRecorderUtil.startRecord("open_browser");
 	}
 
 	@AfterClass
 	public static void quit_browser() throws Exception {
 		CommonLib.closeBrowser();
-		//ScreenRecorderUtil.stopRecord();
+		ScreenRecorderUtil.stopRecord();
 		CommonLib.quitDriver();
-	}
-	
-	@BeforeMethod
-	public static void open_dashboard() {
-		
-		driver.get("https://app.rely.co/login");
 	}
 
 	public static void login_to_new_tab_dashboard() throws IOException, InterruptedException {
