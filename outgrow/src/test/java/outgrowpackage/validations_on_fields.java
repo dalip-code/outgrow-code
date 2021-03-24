@@ -21,17 +21,21 @@ public class validations_on_fields extends CommonLib {
 	}
 
 	@Test
-	public static void string_test() {
+	public static void string_test1() {
 
 		String example = "https://dcompany624.outgrow.co/dashboard";
 		int a = example.indexOf("y");
 		int b = example.indexOf(".");
 		String int_added = example.substring(a + 1, b);
 		int i = Integer.parseInt(int_added);
+	}
 
-		if (i > 0 && i <= 999) {
+	@Test
+	public static void string_test2() {
 
-		}
+		String example = "https://dcompany878.rely.co/dcompany878-6862";
+		String example1 = example.replaceFirst("dcompany878", "livec");
+		System.out.println(example1);
 
 	}
 
