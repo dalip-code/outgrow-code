@@ -8,6 +8,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import logicJump.ScreenRecorderUtil;
 import outgrowpackage.CommonLib;
@@ -138,14 +140,53 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		Thread.sleep(1000);
 
 		// question 11: rating 4 star
-		WebElement element = driver.findElement(By.xpath("//rating/div/div/div/div/i[3]"));
-		Actions clickOnStar = new Actions(driver);
-		clickOnStar.moveToElement(element).click();
+
+		driver.findElement(By.xpath("//form/div[11]/div[4]/a/i")).click();
+		Thread.sleep(1000);
 
 		// question 12 : date picker
 		driver.findElement(By.xpath("//input[@placeholder='MM/DD/YYYY']")).sendKeys("02/28/2021");
+		driver.findElement(By.xpath("//form/div[12]/div[4]/a/i")).click();
 		Thread.sleep(1000);
 
+		// question 13 : file upload
+		WebElement file_upload_q13 = driver.findElement(By.xpath("//form/div[13]/div[4]/a"));
+		file_upload_q13.click();
+
+		Thread.sleep(3000);
+
+		// question 14 : Ranking grid
+		driver.findElement(By.xpath(
+				"//form/div[14]/div[3]/div/div/div[2]/div/div/control/rankfield/div/div/div/div[2]/ul/li[1]/label"))
+				.click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(
+				"//form/div[14]/div[3]/div/div/div[2]/div/div/control/rankfield/div/div/div/div[3]/ul/li[2]/label"))
+				.click();
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//button[normalize-space()='Submit']")).click();
+
+		Thread.sleep(5000);
+
+	}
+
+	public static void expected_data() {
+		String textInputAlphaNumeric_q1_e = "abc123";
+		int textInputNumeric_q2_e = 123;
+		String textEmail_q3_e = "test1@test.com";
+		String textInputPlaces_q4_e = "Jalandhar, Punjab, India";
+		String textArea_q5_e = "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
+		String dropDown_q6_e = "Option 1";
+		String multiSelect_q7_e = "Option 1, Option 2";
+		String singleSelect_q8_e = "Option 2";
+		int numericSlider_q9_e = 50;
+		int opinionScale_q10_e = 7;
+		String rating_q11_e = "Not Answered";
+		String datePicker_q12_e = "02/28/2021";
+		String fileUpload_q13_e = "Not Answered";
+		String rankingGrid_q14_e = "Option 1, Option 2";
 	}
 
 	public static void check_analytics_data() throws InterruptedException {
@@ -201,7 +242,22 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		String q10_answer = driver
 				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[10]/div[2]/h6[2]")).getText();
 
+		String q11_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[11]/div[2]/h6[2]")).getText();
+
+		String q12_answer = driver
+				.findElement(
+						By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[12]/div[2]/h6[2]"))
+				.getText();
+
+		String q13_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[13]/div[2]/h6[2]")).getText();
+
+		String q14_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[14]/div[2]/h6[2]")).getText();
+
 		WebElement graph_title = driver
+
 				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[14]/div[2]/h6[1]"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", graph_title);
 
@@ -217,6 +273,34 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		System.out.println(q8_answer);
 		System.out.println(q9_answer);
 		System.out.println(q10_answer);
+		System.out.println(q11_answer);
+		System.out.println(q12_answer);
+		System.out.println(q13_answer);
+		System.out.println(q14_answer);
+		
+		ChicagoCalculatorQuestions p= new ChicagoCalculatorQuestions();
+	    p.expected_data();
+
+//		String textInputAlphaNumeric_q1_e = "abc123";
+//		int textInputNumeric_q2_e = 123;
+//		String textEmail_q3_e = "test1@test.com";
+//		String textInputPlaces_q4_e = "Jalandhar, Punjab, India";
+//		String textArea_q5_e = "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
+//		String dropDown_q6_e = "Option 1";
+//		String multiSelect_q7_e = "Option 1, Option 2";
+//		String singleSelect_q8_e = "Option 2";
+//		int numericSlider_q9_e = 50;
+//		int opinionScale_q10_e = 7;
+//		String rating_q11_e = "Not Answered";
+//		String datePicker_q12_e = "02/28/2021";
+//		String fileUpload_q13_e = "Not Answered";
+//		String rankingGrid_q14_e = "Option 1, Option 2";
+
+		SoftAssert soft = new SoftAssert();
+
+		soft.assertEquals(q1_answer, textInputAlphaNumeric_q1_e, "Q1: text input alpha numeric value not matched");
+
+		soft.assertAll();
 
 	}
 
