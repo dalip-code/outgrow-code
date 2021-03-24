@@ -1,5 +1,6 @@
 package QuestionsSave;
 
+import java.awt.Desktop.Action;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
@@ -8,7 +9,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,57 +36,6 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		CommonLib.closeBrowser();
 		// ScreenRecorderUtil.stopRecord();
 		CommonLib.quitDriver();
-	}
-
-	public static void check_analytics_data() throws InterruptedException {
-
-		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-
-		driver.switchTo().window(newTb.get(1));
-
-		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
-
-		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
-
-		driver.findElement(By.xpath("//a[normalize-space()='Leads']")).click();
-
-		Thread.sleep(2000);
-
-		driver.findElement(By.xpath("//tbody/tr[1]/td[21]/span[1]/a[1]")).click();
-
-		String q1_answer = driver
-				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[1]/div[2]/h6[2]"))
-				.getText();
-
-		String q2_answer = driver
-				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[2]/div[2]/h6[2]"))
-				.getText();
-
-		String q3_answer = driver
-				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[3]/div[2]/h6[2]"))
-				.getText();
-
-		String q4_answer = driver
-				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[4]/div[2]/h6[2]"))
-				.getText();
-
-		String q5_answer = driver
-				.findElement(By.xpath("//h6[contains(text(),'simply dummy text of the printing and typesetting ')]"))
-				.getText();
-
-		String q6_answer = driver
-				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[6]/div[2]/h6[2]")).getText();
-
-		String q7_answer = driver
-				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[7]/div[2]/h6[2]")).getText();
-
-		System.out.println(q1_answer);
-		System.out.println(q2_answer);
-		System.out.println(q3_answer);
-		System.out.println(q4_answer);
-		System.out.println(q5_answer);
-		System.out.println(q6_answer);
-		System.out.println(q7_answer);
 	}
 
 	public static void questions_attempt() throws InterruptedException {
@@ -145,19 +98,126 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 				"//div[@class='material-textarea']//button[@class='button_textfield submit-textbox-btnresp ripple-light'][normalize-space()='Continue']"))
 				.click();
 
-		// drop down question 6 next button
+		// drop down question 6 next button : option 1
 
 		driver.findElement(By.xpath("//form/div[6]/div[4]/a/i")).click();
 
 		Thread.sleep(2000);
 
-		// question 7 : multi select
+		// question 7 : multi select : option 1 and option 2
 		driver.findElement(By.xpath("//checkbox/div/div/div[1]/label/span")).click();
 		driver.findElement(By.xpath("//checkbox/div/div/div[2]/label/span")).click();
 
 		Thread.sleep(1500);
 
 		driver.findElement(By.xpath("//button[@class='submit-checkbox-img ripple-light enterBtn']")).click();
+
+		Thread.sleep(1000);
+
+		// question 8 : single select
+		driver.findElement(By.xpath("//radio-button/div/div/div[2]/div[2]/label/span")).click();
+		Thread.sleep(1000);
+
+		// question 9 : Numeric slider : value 50
+
+		WebElement slider = driver.findElement(By.xpath("//slider/div/div/div[1]/div/div[1]/input"));
+
+		// Using Action Class
+		Actions move = new Actions(driver);
+		move.moveToElement(slider).clickAndHold().moveByOffset(0, 50).release().perform();
+
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//form/div[9]/div[4]/a")).click();
+
+		Thread.sleep(1000);
+
+		// question 10: opinion scale
+		driver.findElement(By.xpath("//rating/div/div/div[7]/div/label/span")).click();
+
+		Thread.sleep(1000);
+
+		// question 11: rating 4 star
+		WebElement element = driver.findElement(By.xpath("//rating/div/div/div/div/i[3]"));
+		Actions clickOnStar = new Actions(driver);
+		clickOnStar.moveToElement(element).click();
+
+		// question 12 : date picker
+		driver.findElement(By.xpath("//input[@placeholder='MM/DD/YYYY']")).sendKeys("02/28/2021");
+		Thread.sleep(1000);
+
+	}
+
+	public static void check_analytics_data() throws InterruptedException {
+
+		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+
+		driver.switchTo().window(newTb.get(1));
+
+		driver.findElement(By.xpath("//div[@class='mobile-top-menu']//li[3]//a[1]")).click();
+
+		driver.findElement(By.xpath("//span[normalize-space()='User Details']")).click();
+
+		driver.findElement(By.xpath("//a[normalize-space()='Leads']")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//tbody/tr[1]/td[21]/span[1]/a[1]")).click();
+
+		String q1_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[1]/div[2]/h6[2]"))
+				.getText();
+
+		String q2_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[2]/div[2]/h6[2]"))
+				.getText();
+
+		String q3_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[3]/div[2]/h6[2]"))
+				.getText();
+
+		String q4_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[4]/div[2]/h6[2]"))
+				.getText();
+
+		String q5_answer = driver
+				.findElement(By.xpath("//h6[contains(text(),'simply dummy text of the printing and typesetting ')]"))
+				.getText();
+
+		String q6_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[6]/div[2]/h6[2]")).getText();
+
+		String q7_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[7]/div[2]/h6[2]")).getText();
+
+		String q8_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[8]/div[2]/h6[2]"))
+				.getText();
+
+		String q9_answer = driver
+				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[9]/div[2]/h6[2]"))
+				.getText();
+
+		String q10_answer = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[10]/div[2]/h6[2]")).getText();
+
+		WebElement graph_title = driver
+				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[14]/div[2]/h6[1]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", graph_title);
+
+		Thread.sleep(2000);
+
+		System.out.println(q1_answer);
+		System.out.println(q2_answer);
+		System.out.println(q3_answer);
+		System.out.println(q4_answer);
+		System.out.println(q5_answer);
+		System.out.println(q6_answer);
+		System.out.println(q7_answer);
+		System.out.println(q8_answer);
+		System.out.println(q9_answer);
+		System.out.println(q10_answer);
+
 	}
 
 	@Test(priority = 1)
