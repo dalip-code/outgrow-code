@@ -126,7 +126,7 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 
 		// Using Action Class
 		Actions move = new Actions(driver);
-		move.moveToElement(slider).clickAndHold().moveByOffset(0, 50).release().perform();
+		move.moveToElement(slider).clickAndHold().moveByOffset(1, 50).release().perform();
 
 		Thread.sleep(1000);
 
@@ -289,7 +289,7 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		String dropDown_q6_e = "Option 1";
 		String multiSelect_q7_e = "Option 1, Option 2";
 		String singleSelect_q8_e = "Option 2";
-		int numericSlider_q9_e = 50;
+		int numericSlider_q9_e = 51;
 		int opinionScale_q10_e = 7;
 		String rating_q11_e = "Not Answered";
 		String datePicker_q12_e = "02/28/2021";

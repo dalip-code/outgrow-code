@@ -33,12 +33,11 @@ public class NewBuilder_check extends CommonLib {
 	public static void builderCheckCal() throws InterruptedException {
 
 		driver.get("http://app.outgrow.in/login");
-		Thread.sleep(4000);
 
 		// span[contains(text(),'Please Login to Continue')]
 
-		WebElement email = driver.findElement(By.name("email"));
-		WebElement password = driver.findElement(By.name("password"));
+		WebElement email = driver.findElement(By.xpath("//form/div[1]/div/input"));
+		WebElement password = driver.findElement(By.xpath("//form/div[2]/div/input"));
 
 		Thread.sleep(2000);
 

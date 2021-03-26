@@ -55,7 +55,7 @@ public class logicJump extends CommonLib {
 		// https://dcompany878.outgrow.co/builder/dcompany878-4277
 		driver.get("https://dcompany878.outgrow.us/dcompany878-4277");
 		// driver.get("https://livec.rely.co/dcompany878-4277");
-		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 40);
+		WebDriverWait wait_welcome_screen = new WebDriverWait(driver, 45);
 
 		wait_welcome_screen.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='BUTTON TEXT']")));
