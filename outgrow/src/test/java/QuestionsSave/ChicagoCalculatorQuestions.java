@@ -92,7 +92,7 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		// text area question 5
 		WebElement textArea_q5 = driver.findElement(By.xpath("//app-textarea/div/div/div/textarea"));
 		textArea_q5.sendKeys(
-				"simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+				"simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
 
 		Thread.sleep(500);
 
@@ -172,23 +172,6 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 
 	}
 
-	public static void expected_data() {
-		String textInputAlphaNumeric_q1_e = "abc123";
-		int textInputNumeric_q2_e = 123;
-		String textEmail_q3_e = "test1@test.com";
-		String textInputPlaces_q4_e = "Jalandhar, Punjab, India";
-		String textArea_q5_e = "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
-		String dropDown_q6_e = "Option 1";
-		String multiSelect_q7_e = "Option 1, Option 2";
-		String singleSelect_q8_e = "Option 2";
-		int numericSlider_q9_e = 50;
-		int opinionScale_q10_e = 7;
-		String rating_q11_e = "Not Answered";
-		String datePicker_q12_e = "02/28/2021";
-		String fileUpload_q13_e = "Not Answered";
-		String rankingGrid_q14_e = "Option 1, Option 2";
-	}
-
 	public static void check_analytics_data() throws InterruptedException {
 
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
@@ -209,9 +192,11 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[1]/div[2]/h6[2]"))
 				.getText();
 
-		String q2_answer = driver
+		String q2_answer_s = driver
 				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[2]/div[2]/h6[2]"))
 				.getText();
+
+		int q2_answer = Integer.parseInt(q2_answer_s);
 
 		String q3_answer = driver
 				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[3]/div[2]/h6[2]"))
@@ -235,12 +220,16 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[8]/div[2]/h6[2]"))
 				.getText();
 
-		String q9_answer = driver
+		String q9_answer_s = driver
 				.findElement(By.xpath("//og-user-details/og-user-details-popup/div/div[2]/div/div/div[9]/div[2]/h6[2]"))
 				.getText();
 
-		String q10_answer = driver
+		int q9_answer = Integer.parseInt(q9_answer_s);
+
+		String q10_answer_s = driver
 				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[10]/div[2]/h6[2]")).getText();
+
+		int q10_answer = Integer.parseInt(q10_answer_s);
 
 		String q11_answer = driver
 				.findElement(By.xpath("//og-user-details-popup/div/div[2]/div/div/div[11]/div[2]/h6[2]")).getText();
@@ -263,42 +252,79 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 
 		Thread.sleep(2000);
 
-		System.out.println(q1_answer);
-		System.out.println(q2_answer);
-		System.out.println(q3_answer);
-		System.out.println(q4_answer);
-		System.out.println(q5_answer);
-		System.out.println(q6_answer);
-		System.out.println(q7_answer);
-		System.out.println(q8_answer);
-		System.out.println(q9_answer);
-		System.out.println(q10_answer);
-		System.out.println(q11_answer);
-		System.out.println(q12_answer);
-		System.out.println(q13_answer);
-		System.out.println(q14_answer);
-		
-		ChicagoCalculatorQuestions p= new ChicagoCalculatorQuestions();
-	    p.expected_data();
+		System.out.println("Question 1 : " + q1_answer);
+		System.out.println("\n");
+		System.out.println("Question 2 : " + q2_answer);
+		System.out.println("\n");
+		System.out.println("Question 3 : " + q3_answer);
+		System.out.println("\n");
+		System.out.println("Question 4 : " + q4_answer);
+		System.out.println("\n");
+		System.out.println("Question 5 : " + q5_answer);
+		System.out.println("\n");
+		System.out.println("Question 6 : " + q6_answer);
+		System.out.println("\n");
+		System.out.println("Question 7 : " + q7_answer);
+		System.out.println("\n");
+		System.out.println("Question 8 : " + q8_answer);
+		System.out.println("\n");
+		System.out.println("Question 9 : " + q9_answer);
+		System.out.println("\n");
+		System.out.println("Question 10 : " + q10_answer);
+		System.out.println("\n");
+		System.out.println("Question 11 : " + q11_answer);
+		System.out.println("\n");
+		System.out.println("Question 12 : " + q12_answer);
+		System.out.println("\n");
+		System.out.println("Question 13 : " + q13_answer);
+		System.out.println("\n");
+		System.out.println("Question 14 : " + q14_answer);
+		System.out.println("\n");
 
-//		String textInputAlphaNumeric_q1_e = "abc123";
-//		int textInputNumeric_q2_e = 123;
-//		String textEmail_q3_e = "test1@test.com";
-//		String textInputPlaces_q4_e = "Jalandhar, Punjab, India";
-//		String textArea_q5_e = "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
-//		String dropDown_q6_e = "Option 1";
-//		String multiSelect_q7_e = "Option 1, Option 2";
-//		String singleSelect_q8_e = "Option 2";
-//		int numericSlider_q9_e = 50;
-//		int opinionScale_q10_e = 7;
-//		String rating_q11_e = "Not Answered";
-//		String datePicker_q12_e = "02/28/2021";
-//		String fileUpload_q13_e = "Not Answered";
-//		String rankingGrid_q14_e = "Option 1, Option 2";
+		String textInputAlphaNumeric_q1_e = "abc123";
+		int textInputNumeric_q2_e = 123;
+		String textEmail_q3_e = "test1@test.com";
+		String textInputPlaces_q4_e = "Jalandhar, Punjab, India";
+		String textArea_q5_e = "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s";
+		String dropDown_q6_e = "Option 1";
+		String multiSelect_q7_e = "Option 1, Option 2";
+		String singleSelect_q8_e = "Option 2";
+		int numericSlider_q9_e = 50;
+		int opinionScale_q10_e = 7;
+		String rating_q11_e = "Not Answered";
+		String datePicker_q12_e = "02/28/2021";
+		String fileUpload_q13_e = "Not Answered";
+		String rankingGrid_q14_e = "Option 1, Option 2";
 
 		SoftAssert soft = new SoftAssert();
 
 		soft.assertEquals(q1_answer, textInputAlphaNumeric_q1_e, "Q1: text input alpha numeric value not matched");
+
+		soft.assertEquals(q2_answer, textInputNumeric_q2_e, "Q2: text input numeric value not matched");
+
+		soft.assertEquals(q3_answer, textEmail_q3_e, "Q3: text input email value not matched");
+
+		soft.assertEquals(q4_answer, textInputPlaces_q4_e, "Q4: text input places value not matched");
+
+		soft.assertEquals(q5_answer, textArea_q5_e, "Q5: text area value not matched");
+
+		soft.assertEquals(q6_answer, dropDown_q6_e, "Q6: drop down value not matched");
+
+		soft.assertEquals(q7_answer, multiSelect_q7_e, "Q7: Multiselect value not matched");
+
+		soft.assertEquals(q8_answer, singleSelect_q8_e, "Q8: single select value not matched");
+
+		soft.assertEquals(q9_answer, numericSlider_q9_e, "Q9:numeric slider value not matched");
+
+		soft.assertEquals(q10_answer, opinionScale_q10_e, "Q10: opinion scale value not matched");
+
+		soft.assertEquals(q11_answer, rating_q11_e, "Q11: rating value not matched");
+
+		soft.assertEquals(q12_answer, datePicker_q12_e, "Q12: Date picker value not matched");
+
+		soft.assertEquals(q13_answer, fileUpload_q13_e, "Q13: file upload value not matched");
+
+		soft.assertEquals(q14_answer, rankingGrid_q14_e, "Q14: Ranking grid value not matched");
 
 		soft.assertAll();
 
@@ -325,14 +351,14 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		// storing clipboard data in variable.
 		String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		CommonLib.openNewTab();
 		CommonLib.switchToNewTab();
 
 		driver.get(myText);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
 
@@ -340,27 +366,21 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 
 		Thread.sleep(2000);
 
-		driver.switchTo().window(newTb.get(0));
-
-		Thread.sleep(2000);
+//		driver.switchTo().window(newTb.get(0));
+//
+//		Thread.sleep(2000);
 
 	}
 
 	@Test(dependsOnMethods = "ChicagoCalculatorQuestionsCheck", priority = 2)
 	public static void FillQuestionsChicagoCalculator() throws InterruptedException {
-
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
-
 		driver.switchTo().window(newTb.get(2));
-
-		Thread.sleep(2000);
-
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//strong[contains(text(),'CALCULATOR HEADING GOES HERE')]")).isDisplayed();
-
 		WebElement name = driver.findElement(By.xpath("//input[@id='icon_prefix0']"));
 		WebElement email = driver.findElement(By.xpath("//input[@id='icon_prefix1']"));
 		WebElement button = driver.findElement(By.xpath("//button[@id='landingBtn']"));
-
 		name.clear();
 		name.sendKeys("dalip");
 		Thread.sleep(500);
@@ -368,11 +388,8 @@ public class ChicagoCalculatorQuestions extends CommonLib {
 		email.sendKeys("dalip.kumar@venturepact.com");
 		Thread.sleep(500);
 		button.click();
-
 		questions_attempt();
-
 		check_analytics_data();
-
 	}
 
 }
